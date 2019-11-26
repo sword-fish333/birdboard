@@ -1,0 +1,37 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+@import 'tailwind';
+
+.logo{
+  height:50px;
+  display: inline;
+}
+
+.logo_text{
+  color:#2980b9;
+  display: inline;
+  top:30px !important;
+}
+.button{
+  color:#fff;
+  background-color: #3498db;
+  text-decoration:none;
+  box-shadow: 0 2px 7px 0 #3498db ;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 6px;
+}
+
+.border-blue{
+  border-color: #3498db;
+}
+
+.card{
+  @apply .bg-white .rounded-lg .shadow .p-5;
+}
