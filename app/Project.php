@@ -37,4 +37,8 @@ class Project extends Model
 //        return true;
 ////            $this->tasks->create(compact('body'));
 //    }
+
+public function activity(){
+        return $this->hasMany(Activity::class);
+}
 }

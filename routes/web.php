@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
@@ -24,9 +25,15 @@ Route::group(['middleware'=>'auth'],function () {
     Route::get('/projects/create', 'ProjectsController@create');
 
     Route::get('/projects/{project}', 'ProjectsController@show');
+    Route::get('/projects/{project}/edit','ProjectsController@edit');
+
+    Route::patch('/projects/{project}', 'ProjectsController@update');
     Route::post('/projects/{project}/tasks', 'TasksController@store');
     Route::patch('/projects/{project}/tasks/{task}','TasksController@update');
 });
 Auth::routes();
 
+
+
 Route::get('/home', 'HomeController@index')->name('home');
+
