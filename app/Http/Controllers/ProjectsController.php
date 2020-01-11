@@ -39,12 +39,14 @@ class ProjectsController extends Controller
     }
 
 
-    public function update(UpdateProjectRequest $request){
+    public function update(UpdateProjectRequest $request,Project $project){
 
 
 
 
-        return redirect( $request->save()->path());
+       return redirect( $request->save()->path());
+//        return redirect()->back();
+
     }
     public function create(){
         return view('projects.create');

@@ -27,11 +27,22 @@ class TasksController extends Controller
         if(auth()->user()->isNot($task->project->owner)){
             abort(403);
         }
+        request()->validate([
+            'body'=>'required'
+        ]);
         $task->update([
             'body'=>request('body'),
-            'completed'=>request()->has('completed')
+//            'completed'=>request()->has('completed')
         ]);
 
+        $method=\request('completed') ? 'completed' :'incomplete';
+        $task->$method();
+//        if(request('completed')){
+//            $task->completed();
+//        }else{
+//            $task->incomplete();
+//
+//        }
         return redirect($project->path());
     }
 }

@@ -14,9 +14,9 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        if(auth()->user()->isNot($this->route('project')->owner)){
-            abort(403);
-        }
+//        if(auth()->user()->isNot($this->route('project')->owner)){
+//            abort(403);
+//        }
         return true;
     }
 
@@ -35,10 +35,12 @@ class UpdateProjectRequest extends FormRequest
     }
 
     public function project(){
+
         return $this->route('project');
     }
 
     public function save(){
-       return tap( $this->project()->update($this->validated()));
+        $this->project()->update($this->validated());
+        return $this->project();
     }
 }
